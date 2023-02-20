@@ -1,0 +1,81 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/**
+ * Pangea Text font
+ */
+@font-face {
+    font-family: 'PangeaText';
+    src: url('/assets/fonts/pangea-text/PangeaText-Regular.woff2') format('woff2'),
+         url('/assets/fonts/pangea-text/PangeaText-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'PangeaText';
+    src: url('/assets/fonts/pangea-text/PangeaText-SemiBold.woff2') format('woff2'),
+         url('/assets/fonts/pangea-text/PangeaText-SemiBold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'PangeaText';
+    src: url('/assets/fonts/pangea-text/PangeaText-Bold.woff2') format('woff2'),
+         url('/assets/fonts/pangea-text/PangeaText-Bold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+}
+
+
+.h-screen-true {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+/**
+ * Improves font rendering
+ */
+* {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+    @apply scroll-p-0;
+}
+
+html {
+    @apply scroll-smooth motion-reduce:scroll-auto;
+}
+
+body {
+    @apply h-screen-true;
+}
+
+
+/**
+ * Focus visible styles for keyboard interactions
+ */
+*,
+button {
+    @apply focus:outline-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-opacity-100 focus-visible:ring-current focus-visible:rounded-sm;
+}
+input {
+    @apply focus-visible:outline-none focus-visible:ring-0;
+}
+
+/**
+ * SVG
+ */
+svg {
+    @apply h-full w-auto;
+}
+
+
+
