@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-AU" dir="ltr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=5">
@@ -8,11 +9,32 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="src/css/main.css">
 </head>
-<body class="antialiased bg-off-white font-sans overflow-x-hidden text-base text-teal-dark">
+
+<body class="p-8 overflow-x-hidden font-sans text-base antialiased bg-off-white text-teal-dark">
 
     <header>
-
+        <div class="flex flex-col rounded-2xl gap-y-1 bg-clip-content">
+            <div class="flex items-center p-4 bg-cream">
+                <img alt="Sustainable Salons logo" class="mr-auto" src="assets/images/logo.svg">
+                </img>
+                <button>
+                    <image src="assets/images/menu-open.svg" role="button" alt="Open navigation menu">
+                    </image>
+                </button>
+            </div>
+            <div class="flex gap-2 p-4 bg-cream">
+                <button
+                    class="flex bg-teal h-[50px] items-center grow justify-center rounded-2xl border-2 border-teal-dark text-off-white">
+                    Find a salon
+                </button>
+                <button class="flex h-[50px] items-center grow justify-center rounded-2xl border-2 border-teal">
+                    For Salons
+                </button>
+            </div>
+        </div>
     </header>
+
+    <main class="p-8">Test content</main>
 
     <footer>
 
@@ -20,4 +42,5 @@
 
     <script src="assets/js/main.js" defer></script>
 </body>
+
 </html>

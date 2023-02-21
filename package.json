@@ -14,10 +14,10 @@
     },
     "dependencies": {
         "alpinejs": "^2.8",
-        "gsap": "^3.11",
-        "tailwindcss": "^3.2"
+        "gsap": "^3.11"
     },
     "devDependencies": {
+        "tailwindcss": "^3.2",
         "@fullhuman/postcss-purgecss": "^4.0.0",
         "autoprefixer": "^10.0.1",
         "concurrently": "^5.3.0",
