@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="src/css/main.css">
 </head>
 
-<body class="p-8 overflow-x-hidden font-sans text-base antialiased bg-off-white text-teal-dark">
+<body
+    class="flex flex-col min-h-screen p-4 overflow-x-hidden font-sans text-base antialiased bg-off-white text-teal-dark">
 
     <header>
         <div class="flex flex-col rounded-2xl gap-y-1 bg-clip-content">
@@ -34,10 +35,36 @@
         </div>
     </header>
 
-    <main class="p-8">Test content</main>
+    <main class="p-8 grow">Test content</main>
 
     <footer>
+        <div class="p-4 bg-teal rounded-2xl">
+            <!-- Links -->
+            <ul class="flex flex-col gap-4 text-off-white">
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">Ponytails</a></li>
+                <li><a href="#">Get in touch</a></li>
+                <li><a href="#">Brand assets</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">For salons</a></li>
+            </ul>
 
+
+            <!-- Social media -->
+            <div class="text-off-white">
+                Follow our journey
+            </div>
+            <div> <!-- Newsletter signup -->
+                No hairy business in this newsletter
+            </div>
+        </div>
+        <div class="flex flex-wrap justify-around mt-4 gap-y-4">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Copyright</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Proudly made by TMRRW™️ Studio</a>
+        </div>
     </footer>
 
     <script src="assets/js/main.js" defer></script>
