@@ -14,6 +14,7 @@ module.exports = {
                 "off-white": "#fcf9f5",
                 teal: "#005e70",
                 "teal-dark": "#003d4f",
+                "ui-disabled": "#AAA69A",
 
                 chemicals: "#edf68b", // chemicals
                 disposables: "#b0c0fa", // disposables
