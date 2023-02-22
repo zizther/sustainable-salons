@@ -14,8 +14,8 @@
     class="flex flex-col min-h-screen p-4 overflow-x-hidden font-sans text-base antialiased bg-off-white text-teal-dark">
 
     <header>
-        <div class="flex flex-col rounded-2xl gap-y-1 bg-clip-content">
-            <div class="flex items-center p-4 bg-cream">
+        <div class="flex flex-col gap-y-1">
+            <div class="flex items-center p-4 rounded-t-2xl bg-cream">
                 <img alt="Sustainable Salons logo" class="mr-auto" src="assets/images/logo.svg">
                 </img>
                 <button>
@@ -23,31 +23,55 @@
                     </image>
                 </button>
             </div>
-            <div class="flex gap-2 p-4 bg-cream">
+            <div class="flex gap-2 p-4 bg-cream rounded-b-2xl">
                 <button
-                    class="flex bg-teal h-[50px] items-center grow justify-center rounded-2xl border-2 border-teal-dark text-off-white">
+                    class="flex bg-teal h-[50px] font-semibold items-center grow justify-center rounded-2xl border-2 border-teal-dark hover:bg-teal-dark  text-off-white">
                     Find a salon
                 </button>
-                <button class="flex h-[50px] items-center grow justify-center rounded-2xl border-2 border-teal">
+                <button
+                    class="flex h-[50px] font-semibold items-center grow justify-center rounded-2xl border-2 border-teal hover:bg-teal hover:border-teal-dark hover:text-off-white">
                     For Salons
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="p-8 grow">Test content</main>
+    <main class="p-8 text-2xl grow">Test aa content <div>
+            Copyright ©
+
+            <span x-text="new Date().getFullYear()"></span>
+        </div>
+    </main>
 
     <footer>
         <div class="p-4 bg-teal rounded-2xl">
             <!-- Links -->
-            <ul class="flex flex-col gap-4 text-off-white">
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Stories</a></li>
-                <li><a href="#">Ponytails</a></li>
-                <li><a href="#">Get in touch</a></li>
-                <li><a href="#">Brand assets</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">For salons</a></li>
+            <ul class="flex flex-col text-base font-bold text-off-white">
+                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint"
+                        href="#">Products</a>
+                </li>
+                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint"
+                        href="#">Stories</a>
+                </li>
+                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint"
+                        href="#">Ponytails</a>
+                </li>
+                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint" href="#">Get in
+                        touch</a></li>
+                <li class="h-[50px] flex items-center"><a class="grow flex align-middle border-b-2 pb-0.5 border-b-mint"
+                        href="#"><span>
+                            Brand assets
+                        </span><img class="ml-auto" src="assets/images/external-link.svg" role="presentation" /> </a>
+                </li>
+                <li class="h-[50px] flex items-center" aria-expanded="false"><button
+                        class="flex align-middle grow border-b-2 pb-0.5 border-b-mint" href="#"><span>About</span><img
+                            class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" /></button>
+                </li>
+                <li class="h-[50px] flex items-center" aria-expanded="false"><a
+                        class="flex align-middle grow border-b-2 pb-0.5 border-b-mint" href="#"><span>For
+                            salons</span><img class="ml-auto" src="assets/images/chevron-down-white.svg"
+                            role="presentation" /></a>
+                </li>
             </ul>
 
 
