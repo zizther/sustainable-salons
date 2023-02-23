@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=5">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
     <link href="assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="src/css/main.css">
 </head>
@@ -63,17 +63,108 @@
                             Brand assets
                         </span><img class="ml-auto" src="assets/images/external-link.svg" role="presentation" /> </a>
                 </li>
-                <li class="h-[50px] flex items-center" aria-expanded="false"><button
-                        class="flex align-middle grow border-b-2 pb-0.5 border-b-mint" href="#"><span>About</span><img
-                            class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" /></button>
+                <li x-data="{ open : false }" class="flex flex-col gap-4 align-middle">
+                    <div class="h-[50px] flex items-center">
+                        <button @click="open = !open" class="grow">
+                            <div class="flex align-middle border-b-2 pb-0.5 border-b-mint">
+                                <span>About</span>
+                                <img class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" />
+                            </div>
+                        </button>
+                    </div>
+                    <ul x-cloak x-show="open" x-transition class="flex flex-col gap-4 mb-4">
+                        <li class="">
+                            <a class="text-sm font-normal " href=" #">
+                                Our purpose
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal " href=" #">
+                                Our impact
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal " href=" #">
+                                Our story
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal " href=" #">
+                                Our people
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal " href=" #">
+                                Work with us
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal " href=" #">
+                                Partnerships
+                            </a>
+                        </li>
+                    </ul>
+
                 </li>
-                <li class="h-[50px] flex items-center" aria-expanded="false"><a
-                        class="flex align-middle grow border-b-2 pb-0.5 border-b-mint" href="#"><span>For
-                            salons</span><img class="ml-auto" src="assets/images/chevron-down-white.svg"
-                            role="presentation" /></a>
+                <li x-data="{ open : false }" class="flex flex-col gap-4 align-middle">
+                    <div class="h-[50px] flex items-center">
+                        <button @click="open = !open" class="grow">
+                            <div class="flex align-middle border-b-2 pb-0.5 border-b-mint">
+                                <span>For salons</span>
+                                <img class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" />
+                            </div>
+                        </button>
+                    </div>
+                    <ul x-cloak x-show="open" x-transition class="flex flex-col gap-4 mb-4">
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                How it all works
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Benefits
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Our impact
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Materials
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Why us?
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Testimonials
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                FAQ
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Join
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="text-sm font-normal" href="#">
+                                Login
+                            </a>
+                        </li>
+                    </ul>
+
                 </li>
             </ul>
-
 
             <!-- Social media -->
             <div class="px-4 flex items-center py-8 text-off-white gap-2.5">
@@ -87,6 +178,7 @@
                 <a class="shrink-0" link="#"><img src="assets/images/social-facebook.svg" role="link"
                         alt="Facebook" /></a>
             </div>
+
             <!-- Newsletter signup -->
             <div
                 class="text-teal-dark h-[570px] bg-[length:31rem] px-4 pt-20 overflow-x-clip bg-no-repeat bg-bottom bg-[url('/assets/images/green-afro-cropped.png')]">

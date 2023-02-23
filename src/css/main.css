@@ -77,5 +77,8 @@ svg {
     @apply h-full w-auto;
 }
 
-
+/**
+ * Hide elements
+ */
+[x-cloak] { display: none !important; }
 
