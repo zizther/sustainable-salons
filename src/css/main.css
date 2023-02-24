@@ -21,14 +21,6 @@
     font-display: swap;
     font-weight: 600;
 }
-@font-face {
-    font-family: 'PangeaText';
-    src: url('/assets/fonts/pangea-text/PangeaText-Bold.woff2') format('woff2'),
-         url('/assets/fonts/pangea-text/PangeaText-Bold.woff') format('woff');
-    font-style: normal;
-    font-display: swap;
-    font-weight: 700;
-}
 
 
 .h-screen-true {
@@ -68,6 +60,11 @@ button {
 }
 input {
     @apply focus-visible:outline-none focus-visible:ring-0;
+}
+
+strong,
+b {
+    @apply font-semibold;
 }
 
 /**
