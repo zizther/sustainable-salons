@@ -13,21 +13,37 @@
     class="flex flex-col min-h-screen p-4 overflow-x-hidden font-sans text-base antialiased bg-off-white text-teal-dark">
 
     <header>
-        <div class="flex flex-col gap-y-1">
+
+        <!-- < lg -->
+        <div class="flex flex-col gap-y-1 lg:hidden">
             <div class="flex items-center p-4 rounded-t-2xl bg-cream">
                 <img alt="Sustainable Salons logo" class="mr-auto" src="assets/images/logo.svg">
-                <button>
+                <button class="button-secondary w-[48px] h-[48px]">
                     <img src="assets/images/menu-open.svg" role="button" alt="Open navigation menu">
                 </button>
             </div>
             <div class="flex gap-2 p-4 bg-cream rounded-b-2xl">
-                <button class="button-primary">
+                <button class="button-primary grow">
                     Find a salon
                 </button>
-                <button class="button-secondary">
+                <button class="button-secondary grow">
                     For Salons
                 </button>
             </div>
+        </div>
+
+        <!-- >= lg -->
+        <div class="items-center hidden gap-8 p-8 bg-cream rounded-2xl lg:flex">
+            <button class="button-primary h-[51]px">
+                Find a salon
+            </button>
+            <img alt="Sustainable Salons logo" class="mx-auto" src="assets/images/logo-lg.svg">
+            <button class="button-secondary h-[51px]">
+                For Salons
+            </button>
+            <button class="button-secondary w-[51px] h-[51px]">
+                <img src="assets/images/menu-open.svg" role="button" alt="Open navigation menu">
+            </button>
         </div>
     </header>
 
