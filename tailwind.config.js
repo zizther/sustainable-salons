@@ -7,7 +7,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
-                'footer': "url('/assets/images/green-afro-cropped.png')",
+                footer: "url('/assets/images/green-afro-cropped.png')",
             },
             colors: {
                 cream: "#f1ede2",
@@ -29,9 +29,6 @@ module.exports = {
                 razors: "#f69869", // razors
                 tools: "#ee7970", // tools
                 more: "#b193ea", // & more
-            },
-            dropShadow: {
-                "button-secondary": "0 6px 0 #005e70",
             },
             fontFamily: {
                 sans: ["PangeaText", ...defaultTheme.fontFamily.sans],
