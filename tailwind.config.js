@@ -27,6 +27,9 @@ module.exports = {
                 tools: "#ee7970", // tools
                 more: "#b193ea", // & more
             },
+            dropShadow: {
+                "button-secondary": "0 6px 0 #005e70",
+            },
             fontFamily: {
                 sans: ["PangeaText", ...defaultTheme.fontFamily.sans],
             },
