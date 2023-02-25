@@ -193,14 +193,17 @@
                             newsletter
                         </div>
                         <div class="pt-3 leading-5 text-center">We only send you stuff that makes you feel good.</div>
-                        <form class="w-full mt-2">
-                            <input type="text" name="name" placeholder="Name"
+                        <!-- disable submit if form is not valid -->
+                        <form x-ref="subscribeForm" class="w-full mt-2" x-data="{isValid : false}">
+                            <input type="text" name="name" placeholder="Name" required
+                                @input="isValid = $refs.subscribeForm.checkValidity()"
                                 class="w-full h-[50px] md:h-[67px] mt-4 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl  placeholder:text-ui-disabled">
                             <div class="w-full h-[50px] md:h-[67px]  mt-4 relative">
-                                <input type="email" name="email" placeholder="Email"
-                                    class="absolute inset-0 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
-                                <button type="submit"
-                                    class="absolute px-4 border-2 top-2 right-2 bottom-2 border-teal rounded-xl bg-mint">
+                                <input type="email" required name="email" placeholder="Email"
+                                    @input="isValid = $refs.subscribeForm.checkValidity()"
+                                    class="absolute inset-0 py-4 pl-4 pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
+                                <button type="submit" :disabled="!isValid"
+                                    class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
                                     Subscribe
                                 </button>
 

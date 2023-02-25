@@ -81,21 +81,28 @@ svg {
 
 
 .button-primary {
-@apply p-4 bg-teal flex font-semibold items-center grow justify-center
+@apply p-4 py-2 bg-teal flex font-semibold items-center grow justify-center
 rounded-2xl border-2 border-teal-dark text-off-white
 drop-shadow-[0_6px_0_#003d4f]
 active:drop-shadow-[0_0_0_#003d4f]
+disabled:drop-shadow-[0_6px_0_#AAA69A]
+disabled:border-ui-disabled disabled:bg-off-white disabled:text-ui-disabled
 transition duration-75
 ;
 }
 
 .button-secondary {
-    @apply p-4 bg-cream flex font-semibold items-center grow justify-center
+    @apply p-4 py-2 bg-cream flex font-semibold items-center grow justify-center
     rounded-2xl border-2 border-teal text-teal
     drop-shadow-[0_6px_0_teal]
-active:drop-shadow-[0_0_0_teal]
-transition duration-75
+    disabled:border-ui-disabled disabled:bg-off-white disabled:text-ui-disabled
+    active:drop-shadow-[0_0_0_teal]
+    disabled:drop-shadow-[0_6px_0_#AAA69A]
+    transition duration-75
+    ;
 }
+
+
 
 .footer-link-container {
     @apply h-[50px] md:h-[66px] flex items-center
