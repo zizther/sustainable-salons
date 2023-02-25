@@ -188,16 +188,24 @@
 
 
                 <div class="absolute inset-0 p-4 pt-20 ">
-                    <div class="flex flex-col items-center max-w-[380px] mx-auto mt-4 sm:mt-8 z-10">
+                    <div class="flex flex-col items-center max-w-[400px] mx-auto mt-4 sm:mt-8 z-10">
                         <div class="text-3xl font-bold leading-8 text-center">No hairy business in this
                             newsletter
                         </div>
                         <div class="pt-3 leading-5 text-center">We only send you stuff that makes you feel good.</div>
-                        <form class="mt-2">
+                        <form class="w-full mt-2">
                             <input type="text" name="name" placeholder="Name"
-                                class="w-full h-[50px] mt-4 p-4 rounded-2xl focus:rounded-2xl  placeholder:text-ui-disabled ">
-                            <input type="email" name="email" placeholder="Email"
-                                class="w-full h-[50px] mt-4 p-4 rounded-2xl focus:rounded-2xl  placeholder:text-ui-disabled ">
+                                class="w-full h-[50px] md:h-[67px] mt-4 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl  placeholder:text-ui-disabled">
+                            <div class="w-full h-[50px] md:h-[67px]  mt-4 relative">
+                                <input type="email" name="email" placeholder="Email"
+                                    class="absolute inset-0 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
+                                <button type="submit"
+                                    class="absolute px-4 border-2 top-2 right-2 bottom-2 border-teal rounded-xl bg-mint">
+                                    Subscribe
+                                </button>
+
+
+                            </div>
                         </form>
                     </div>
                 </div>
