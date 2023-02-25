@@ -27,6 +27,9 @@ module.exports = {
                 tools: "#ee7970", // tools
                 more: "#b193ea", // & more
             },
+            backgroundImage: {
+                squiggle: "url('/assets/images/squiggle.svg')",
+            },
             fontFamily: {
                 sans: ["PangeaText", ...defaultTheme.fontFamily.sans],
             },

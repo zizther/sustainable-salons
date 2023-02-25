@@ -102,8 +102,22 @@ transition duration-75
     ;
 }
 
-
-
 .footer-link-container {
     @apply h-[50px] md:h-[66px] flex items-center
+}
+
+.squiggle-under {
+    @apply relative
+        after:absolute
+        after:w-full
+        after:h-12 after:bg-repeat-x
+        after:bg-squiggle
+        after:top-auto
+        after:bottom-[-46px]
+        after:left-0
+        after:transform
+        after:translate-y-[-1px]
+        after:hidden lg:after:block
+        after:content-[''];
+
 }
