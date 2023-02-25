@@ -41,27 +41,28 @@
     <footer>
         <div class="bg-teal rounded-2xl">
             <!-- Links -->
-            <ul class="flex flex-col px-4 pt-4 text-base font-bold text-off-white">
-                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint"
+            <ul class="flex flex-col px-4 pt-4 text-base font-bold md:text-2xl text-off-white">
+                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
                         href="#">Products</a>
                 </li>
-                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint"
+                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
                         href="#">Stories</a>
                 </li>
-                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint"
+                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
                         href="#">Ponytails</a>
                 </li>
-                <li class="h-[50px] flex items-center"><a class="grow border-b-2 pb-0.5 border-b-mint" href="#">Get in
+                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
+                        href="#">Get in
                         touch</a></li>
-                <li class="h-[50px] flex items-center"><a class="grow flex align-middle border-b-2 pb-0.5 border-b-mint"
-                        href="#"><span>
+                <li class="footer-link-container"><a
+                        class="grow flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#"><span>
                             Brand assets
                         </span><img class="ml-auto" src="assets/images/external-link.svg" role="presentation" /> </a>
                 </li>
                 <li x-data="{ open : false }" class="flex flex-col gap-4 align-middle">
-                    <div class="h-[50px] flex items-center">
+                    <div class="footer-link-container">
                         <button @click="open = !open" class="grow">
-                            <div class="flex align-middle border-b-2 pb-0.5 border-b-mint">
+                            <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>About</span>
                                 <img class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" />
                             </div>
@@ -102,9 +103,9 @@
 
                 </li>
                 <li x-data="{ open : false }" class="flex flex-col gap-4 align-middle">
-                    <div class="h-[50px] flex items-center">
+                    <div class="footer-link-container">
                         <button @click="open = !open" class="grow">
-                            <div class="flex align-middle border-b-2 pb-0.5 border-b-mint">
+                            <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>For salons</span>
                                 <img class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" />
                             </div>
@@ -162,29 +163,44 @@
             </ul>
 
             <!-- Social media -->
-            <div class="px-4 flex items-center py-8 text-off-white gap-2.5">
-                <div class="mr-auto">Follow our journey</div>
-                <a class="shrink-0" link="#"><img src="assets/images/social-youtube.svg" role="link"
+            <div class="px-4 flex items-center py-8 justify-between text-off-white gap-2.5">
+                <div class="shrink-0 ">Follow our journey</div>
+                <a class="shrink-0 " link="#"><img src="assets/images/social-youtube.svg" role="link"
                         alt="YouTube" /></a>
-                <a class="shrink-0" link="#"><img src="assets/images/social-insta.svg" role="link"
+                <a class="shrink-0 " link="#"><img src="assets/images/social-insta.svg" role="link"
                         alt="Instagram" /></a>
-                <a class="shrink-0" link="#"><img src="assets/images/social-linkedin.svg" role="link"
+                <a class="shrink-0 " link="#"><img src="assets/images/social-linkedin.svg" role="link"
                         alt="LinkedIn" /></a>
-                <a class="shrink-0" link="#"><img src="assets/images/social-facebook.svg" role="link"
+                <a class="shrink-0 " link="#"><img src="assets/images/social-facebook.svg" role="link"
                         alt="Facebook" /></a>
             </div>
 
             <!-- Newsletter signup -->
-            <div
-                class="text-teal-dark h-[570px] bg-[length:31rem] px-4 pt-20 overflow-x-clip bg-no-repeat bg-bottom bg-footer">
-                <div class="text-3xl font-bold leading-9">No hairy business<br>in this newsletter</div>
-                <div class="pt-4 leading-5">We only send you stuff that makes you feel good.</div>
-                <form>
-                    <input type="text" name="name" placeholder="Name"
-                        class="w-full h-[50px] mt-4 p-4 rounded-2xl focus:rounded-2xl  placeholder:text-ui-disabled ">
-                    <input type="email" name="email" placeholder="Email"
-                        class="w-full h-[50px] mt-4 p-4 rounded-2xl focus:rounded-2xl  placeholder:text-ui-disabled ">
-                </form>
+            <div class="relative p-0 h-[656px] overflow-hidden text-teal-dark">
+
+
+
+                <!-- place img assets/images/green-afro-cropped.png to be 724px high and cropped at the parent width -->
+                <img class="object-cover  mx-auto w-auto -mb-28  h-[656px] max-h-[656px]"
+                    src="assets/images/green-afro-cropped.png" alt="Green afro" />
+
+
+
+
+                <div class="absolute inset-0 p-4 pt-20 ">
+                    <div class="flex flex-col items-center max-w-[380px] mx-auto mt-4 sm:mt-8 z-10">
+                        <div class="text-3xl font-bold leading-8 text-center">No hairy business in this
+                            newsletter
+                        </div>
+                        <div class="pt-3 leading-5 text-center">We only send you stuff that makes you feel good.</div>
+                        <form class="mt-2">
+                            <input type="text" name="name" placeholder="Name"
+                                class="w-full h-[50px] mt-4 p-4 rounded-2xl focus:rounded-2xl  placeholder:text-ui-disabled ">
+                            <input type="email" name="email" placeholder="Email"
+                                class="w-full h-[50px] mt-4 p-4 rounded-2xl focus:rounded-2xl  placeholder:text-ui-disabled ">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="flex flex-wrap justify-around mt-4 gap-y-4 ">

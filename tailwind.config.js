@@ -6,9 +6,6 @@ module.exports = {
     darkMode: "class", // or 'media' or 'class'
     theme: {
         extend: {
-            backgroundImage: {
-                footer: "url('/assets/images/green-afro-cropped.png')",
-            },
             colors: {
                 cream: "#f1ede2",
                 ivory: "#fbfbfb",

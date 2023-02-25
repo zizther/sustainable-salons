@@ -96,3 +96,7 @@ transition duration-75
 active:drop-shadow-[0_0_0_teal]
 transition duration-75
 }
+
+.footer-link-container {
+    @apply h-[50px] md:h-[66px] flex items-center
+}
