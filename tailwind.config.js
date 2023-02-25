@@ -2,10 +2,13 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-    content: ["./index.html", "./src/js/**/*.js", "./src/css/**/*.css"],
+    content: ["./index.html", "./src/js/**/*.js"],
     darkMode: "class", // or 'media' or 'class'
     theme: {
         extend: {
+            backgroundImage: {
+                'footer': "url('/assets/images/green-afro-cropped.png')",
+            },
             colors: {
                 cream: "#f1ede2",
                 ivory: "#fbfbfb",
