@@ -54,132 +54,148 @@
         </div>
     </main>
 
-    <footer>
+    <footer x-data="{
+        width: window.innerWidth,
+        breakpoint: 1024,
+    }" @resize.window="width = window.innerWidth">
         <div class="bg-teal rounded-2xl">
-            <!-- Links -->
-            <ul class="flex flex-col px-4 pt-4 text-base font-bold md:text-2xl text-off-white">
-                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
-                        href="#">Products</a>
-                </li>
-                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
-                        href="#">Stories</a>
-                </li>
-                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
-                        href="#">Ponytails</a>
-                </li>
-                <li class="footer-link-container"><a class="grow border-b-2 pb-0.5 border-b-mint md:border-b-4"
-                        href="#">Get in
-                        touch</a></li>
-                <li class="footer-link-container"><a
-                        class="grow flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#"><span>
-                            Brand assets
-                        </span><img class="ml-auto" src="assets/images/external-link.svg" role="presentation" /> </a>
-                </li>
-                <li x-data="{ open : false }" class="flex flex-col gap-4 align-middle">
+            <!-- Footer Links -- mobile -->
+            <div
+                class="flex flex-col px-4 pt-4 text-base font-bold lg:px-20 lg:pt-16 lg:flex-row lg:justify-between md:text-2xl text-off-white ">
+
+                <div class="flex flex-col lg:grow">
+                    <div class="footer-link-container"><a
+                            class="grow lg:grow-0 border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#">Products</a>
+                    </div>
+                    <div class="footer-link-container"><a
+                            class="grow lg:grow-0 border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#">Stories</a>
+                    </div>
+                    <div class="footer-link-container"><a
+                            class="grow lg:grow-0 border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#">Ponytails</a>
+                    </div>
+                    <div class="footer-link-container"><a
+                            class="grow lg:grow-0 border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#">Get in
+                            touch</a></div>
+                    <div class="footer-link-container"><a
+                            class="grow lg:grow-0 flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4"
+                            href="#"><span>
+                                Brand assets
+                            </span><img class="ml-auto" src="assets/images/external-link.svg" role="presentation" />
+                        </a>
+                    </div>
+                </div>
+
+                <div x-data="{ open : false }" class="flex flex-col gap-4 align-middle lg:grow">
                     <div class="footer-link-container">
-                        <button @click="open = !open" class="grow">
+                        <button @click="open = !open" class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>About</span>
-                                <img class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" />
+                                <img class="ml-auto lg:hidden" src="assets/images/chevron-down-white.svg"
+                                    role="presentation" />
                             </div>
                         </button>
                     </div>
-                    <ul x-cloak x-show="open" x-transition class="flex flex-col gap-4 mb-4">
-                        <li class="">
+                    <div x-cloak x-show="open || width > breakpoint" x-transition class="flex flex-col gap-4 mb-4">
+                        <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Our purpose
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Our impact
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Our story
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Our people
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Work with us
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Partnerships
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                </div>
 
-                </li>
-                <li x-data="{ open : false }" class="flex flex-col gap-4 align-middle">
+                <div x-data="{ open : false }" class="flex flex-col gap-4 align-middle lg:grow">
                     <div class="footer-link-container">
-                        <button @click="open = !open" class="grow">
+                        <button @click="open = !open" class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>For salons</span>
-                                <img class="ml-auto" src="assets/images/chevron-down-white.svg" role="presentation" />
+                                <img class="ml-auto lg:hidden" src="assets/images/chevron-down-white.svg"
+                                    role="presentation" />
                             </div>
                         </button>
                     </div>
-                    <ul x-cloak x-show="open" x-transition class="flex flex-col gap-4 mb-4">
-                        <li class="">
+                    <div x-cloak x-show="open || width > breakpoint" x-transition class="flex flex-col gap-4 mb-4">
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 How it all works
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Benefits
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Our impact
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Materials
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Why us?
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Testimonials
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 FAQ
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Join
                             </a>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="">
                             <a class="text-sm font-normal" href="#">
                                 Login
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
 
-                </li>
-            </ul>
+                </div>
+            </div>
+
+
+
+
 
             <!-- Social media -->
-            <div class="px-4 flex items-center py-8 justify-between text-off-white gap-2.5">
+            <div class="px-20 flex items-center py-8 justify-between text-off-white gap-2.5">
                 <div class="shrink-0 ">Follow our journey</div>
                 <a class="shrink-0 " link="#"><img src="assets/images/social-youtube.svg" role="link"
                         alt="YouTube" /></a>
@@ -208,7 +224,8 @@
                         <div class="text-3xl font-bold leading-8 text-center">No hairy business in this
                             newsletter
                         </div>
-                        <div class="pt-3 leading-5 text-center">We only send you stuff that makes you feel good.</div>
+                        <div class="pt-3 leading-5 text-center">We only send you stuff that makes you feel good.
+                        </div>
                         <!-- disable submit if form is not valid -->
                         <form x-ref="subscribeForm" class="w-full mt-2" x-data="{isValid : false}">
                             <input type="text" name="name" placeholder="Name" required
