@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU" dir="ltr">
+<html lang="en-AU" dir="ltr" class="relative min-h-screen">
 
 <head>
     <meta charset="utf-8">
@@ -9,8 +9,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body
-    class="flex flex-col min-h-screen p-4 overflow-x-hidden font-sans text-base antialiased bg-off-white text-teal-dark">
+<body class="h-full p-4 overflow-x-hidden font-sans text-base antialiased lg:p-7 bg-off-white text-teal-dark">
 
     <header>
 
@@ -47,23 +46,50 @@
         </div>
     </header>
 
-    <main class="p-8 text-2xl grow">Test aa content <div>
-            Copyright ©
+    <main class="p-8 mb-24 grow max-w-prose">
 
-            <span x-text="new Date().getFullYear()"></span>
-        </div>
+        <!-- lorem -->
+
+        <h1 class="text-3xl font-bold lg:text-5xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
+            In,
+            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+            expedita!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
+            In,
+            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+            expedita!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
+            In,
+            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+            expedita!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
+            In,
+            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+            expedita!
+        </p>
+
+
+
     </main>
 
     <footer x-data="{
         width: window.innerWidth,
         breakpoint: 1024,
     }" @resize.window="width = window.innerWidth">
-        <div class="bg-teal rounded-2xl">
+        <div class="bg-teal rounded-2xl 2xl:pr-[640px]">
             <!-- Footer Links -- mobile -->
             <div
                 class="flex flex-col px-4 pt-4 text-base font-bold lg:px-20 lg:pt-16 lg:flex-row lg:justify-between md:text-2xl text-off-white ">
 
-                <div class="flex flex-col lg:grow">
+                <div class="flex flex-col order-4 lg:grow lg:order-1">
                     <div class="footer-link-container"><a
                             class="grow lg:grow-0 border-b-2 pb-0.5 border-b-mint md:border-b-4 lg:border-b-transparent squiggle-under"
                             href="#">Products</a>
@@ -78,7 +104,7 @@
                             class="grow lg:grow-0 border-b-2 pb-0.5 border-b-mint md:border-b-4" href="#">Get in
                             touch</a></div>
                     <div class="footer-link-container"><a
-                            class="grow lg:grow-0 flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4"
+                            class="grow lg:grow-0 flex gap-4 align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4"
                             href="#"><span>
                                 Brand assets
                             </span><img class="ml-auto" src="assets/images/external-link.svg" role="presentation" />
@@ -86,7 +112,7 @@
                     </div>
                 </div>
 
-                <div x-data="{ open : false }" class="flex flex-col gap-4 align-middle lg:grow">
+                <div x-data="{ open : false }" class="flex flex-col order-2 gap-4 align-middle lg:grow">
                     <div class="footer-link-container">
                         <button @click="open = !open" class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
@@ -96,7 +122,7 @@
                             </div>
                         </button>
                     </div>
-                    <div x-cloak x-show="open || width > breakpoint" x-transition class="flex flex-col gap-4 mb-4">
+                    <div x-cloak x-show="open || width > breakpoint" class="flex flex-col gap-4 mb-4">
                         <div class="">
                             <a class="text-sm font-normal " href=" #">
                                 Our purpose
@@ -130,7 +156,7 @@
                     </div>
                 </div>
 
-                <div x-data="{ open : false }" class="flex flex-col gap-4 align-middle lg:grow">
+                <div x-data="{ open : false }" class="flex flex-col order-3 gap-4 align-middle lg:grow">
                     <div class="footer-link-container">
                         <button @click="open = !open" class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
@@ -140,7 +166,7 @@
                             </div>
                         </button>
                     </div>
-                    <div x-cloak x-show="open || width > breakpoint" x-transition class="flex flex-col gap-4 mb-4">
+                    <div x-cloak x-show="open || width > breakpoint" class="flex flex-col gap-4 mb-4">
                         <div class="">
                             <a class="text-sm font-normal" href="#">
                                 How it all works
@@ -191,10 +217,6 @@
                 </div>
             </div>
 
-
-
-
-
             <!-- Social media -->
             <div
                 class="px-4 lg:px-20 flex items-center py-8 justify-between lg:justify-start text-off-white gap-2.5 lg:gap-8 lg:-mt-16">
@@ -210,50 +232,44 @@
             </div>
 
             <!-- Newsletter signup -->
-            <div class="relative p-0 h-[656px] overflow-hidden text-teal-dark">
-
-
-
-                <!-- place img assets/images/green-afro-cropped.png to be 724px high and cropped at the parent width -->
-                <img class="object-cover  mx-auto w-auto -mb-28  h-[656px] max-h-[656px]"
-                    src="assets/images/green-afro-cropped.png" alt="Green afro" />
-
-
-
-
-                <div class="absolute inset-0 p-4 pt-20 ">
-                    <div class="flex flex-col items-center max-w-[400px] mx-auto mt-4 sm:mt-8 z-10">
-                        <div class="text-3xl font-bold leading-8 text-center">No hairy business in this
-                            newsletter
-                        </div>
-                        <div class="pt-3 leading-5 text-center">We only send you stuff that makes you feel good.
-                        </div>
-                        <!-- disable submit if form is not valid -->
-                        <form x-ref="subscribeForm" class="w-full mt-2" x-data="{isValid : false}">
-                            <input type="text" name="name" placeholder="Name" required
-                                @input="isValid = $refs.subscribeForm.checkValidity()"
-                                class="w-full h-[50px] md:h-[67px] mt-4 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl  placeholder:text-ui-disabled">
-                            <div class="w-full h-[50px] md:h-[67px]  mt-4 relative">
-                                <input type="email" required name="email" placeholder="Email"
-                                    @input="isValid = $refs.subscribeForm.checkValidity()"
-                                    class="absolute inset-0 py-4 pl-4 pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
-                                <button type="submit" :disabled="!isValid"
-                                    class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
-                                    Subscribe
-                                </button>
-
-
+            <div class="left-auto 2xl:bottom-0 2xl:right-14 2xl:absolute">
+                <div class="relative p-0 h-[656px] lg:h-[700px] 2xl:h-[760px] overflow-hidden text-teal-dark ">
+                    <!-- place img assets/images/green-afro-cropped.png to be 724px high and cropped at the parent width -->
+                    <img class="object-cover  mx-auto w-auto -mb-28  h-[656px] lg:h-[700px] lg:max-h-[700px] 2xl:h-[760px] 2xl:max-h-[760px] max-h-[656px]"
+                        src="assets/images/green-afro-cropped.png" alt="Green afro" />
+                    <div class="absolute inset-0 p-4 pt-20 ">
+                        <div class="flex flex-col items-center max-w-[400px] mx-auto mt-4 sm:mt-8 z-10">
+                            <div class="text-3xl font-bold leading-8 text-center lg:text-4xl">No hairy business in this
+                                newsletter
                             </div>
-                        </form>
+                            <div class="pt-6 leading-5 text-center">We only send you stuff that makes you feel good.
+                            </div>
+                            <!-- disable submit if form is not valid -->
+                            <form x-ref="subscribeForm" class="w-full mt-2" x-data="{isValid : false}">
+                                <input type="text" name="name" placeholder="Name" required
+                                    @input="isValid = $refs.subscribeForm.checkValidity()"
+                                    class="w-full h-[50px] md:h-[67px] mt-4 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl  placeholder:text-ui-disabled">
+                                <div class="w-full h-[50px] md:h-[67px]  mt-4 relative">
+                                    <input type="email" required name="email" placeholder="Email"
+                                        @input="isValid = $refs.subscribeForm.checkValidity()"
+                                        class="absolute inset-0 py-4 pl-4 pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
+                                    <button type="submit" :disabled="!isValid"
+                                        class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
+                                        Subscribe
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap justify-around mt-4 gap-y-4 ">
+        <div
+            class="flex flex-wrap justify-center mt-4 lg:justify-between 2xl:mt-8 2xl:pl-32 gap-y-4 gap-x-20 2xl:gap-x-32">
             <a href="#">Terms & Conditions</a>
             <a href="#">Copyright</a>
             <a href="#">Privacy Policy</a>
-            <a href="#">Proudly made by TMRRW™️ Studio</a>
+            <a href="#" class="2xl:ml-auto">Proudly made by TMRRW™️ Studio</a>
         </div>
     </footer>
 

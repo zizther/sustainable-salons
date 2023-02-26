@@ -30,6 +30,9 @@ module.exports = {
             backgroundImage: {
                 squiggle: "url('/assets/images/squiggle.svg')",
             },
+            screens: {
+                "2xl": "1440px",
+            },
             fontFamily: {
                 sans: ["PangeaText", ...defaultTheme.fontFamily.sans],
             },
