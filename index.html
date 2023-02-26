@@ -50,9 +50,121 @@
 
     <main class="p-8 mb-24 grow max-w-prose">
 
+        <!-- Search component -->
+        <div class="p-6 border-4 border-solid rounded-3xl border-teal-dark bg-cream">
+            <div class="w-full text-lg font-semibold text-center text-teal-dark">#1 Directory Platform in the Industry
+                &ndash; not
+                bragging.</div>
+
+            <div x-data="{
+                open: false,
+                close(focusAfter) {
+                    if(! this.open) return
+                    this.open = false
+                    focusAfter && focusAfter.focus()
+                },
+                toggle() {
+                    this.open = !this.open
+                },
+                labelText : 'Find salons',
+                handleCheck(e) {
+                    // if 'all' is selected, unchecked all other checkboxes
+                    if(e.target.value === 'all') {
+                        if(e.target.checked) {
+                            document.querySelectorAll('input[name=salontype]').forEach(el => {
+                                el.checked = el.value === 'all'
+                            })
+                        }
+                    } else {
+                        // if any other checkbox is selected, uncheck 'all'
+                        document.querySelector('input[value=all]').checked = false
+                    }
+                }
+            }" class="relative">
+
+                <!-- popover button -->
+                <button type="button" x-on:click="toggle()" :aria-expanded="open" :aria-haspopup="listbox"
+                    :aria-controls="$id('selectbox')"
+                    class="flex items-center w-full mt-4 mb-4 font-semibold border-b-4 border-mint"><span
+                        class="text-teal text-[28px]">Find
+                        salons</span><img class="ml-auto" src="/assets/images/chevron-down-teal.svg"
+                        role="presentation" /></button>
+
+                <!-- salon popover panel -->
+                <div :id="$id('selectbox')" x-cloak x-ref="salonpanel" x-show="open"
+                    x-on:click.outside="close($refs.button)" x-on:click.outside="close($refs.salonbutton)"
+                    class="absolute left-auto right-auto flex flex-col items-stretch p-2 border-4 w-80 border-teal-dark bg-cream rounded-3xl">
+
+                    <div class="focus-within:rounded-2xl focus-within:bg-mint">
+                        <label class="flex py-2 m-4 border-b-4 border-mint">
+                            <div class="mr-auto font-semibold">All salons</div>
+                            <input @click="handleCheck" type="checkbox" checked="true" name="salontype" value="all"
+                                class="opacity-0 peer" />
+                            <img src="/assets/images/checkbox-empty.svg" role="presentation"
+                                class="peer-checked:hidden" />
+                            <img src="/assets/images/checkbox-filled.svg" role="presentation"
+                                class="hidden peer-checked:block" />
+                        </label>
+                    </div>
+
+                    <div class="focus-within:rounded-2xl focus-within:bg-mint">
+                        <label class="flex py-2 m-4 border-b-4 border-mint">
+                            <div class="mr-auto font-semibold">Hairdresser</div>
+                            <input @click="handleCheck" type="checkbox" name="salontype" value="hairdresser"
+                                class="opacity-0 peer" />
+                            <img src="/assets/images/checkbox-empty.svg" role="presentation"
+                                class="peer-checked:hidden" />
+                            <img src="/assets/images/checkbox-filled.svg" role="presentation"
+                                class="hidden peer-checked:block" />
+                        </label>
+                    </div>
+
+                    <div class="focus-within:rounded-2xl focus-within:bg-mint">
+                        <label class="flex py-2 m-4 border-b-4 border-mint">
+                            <div class="mr-auto font-semibold">Barber</div>
+                            <input @click="handleCheck" type="checkbox" name="salontype" value="barber"
+                                class="opacity-0 peer" />
+                            <img src="/assets/images/checkbox-empty.svg" role="presentation"
+                                class="peer-checked:hidden" />
+                            <img src="/assets/images/checkbox-filled.svg" role="presentation"
+                                class="hidden peer-checked:block" />
+                        </label>
+                    </div>
+
+                    <div class="focus-within:rounded-2xl focus-within:bg-mint">
+                        <label class="flex py-2 m-4 border-b-4 border-mint">
+                            <div class="mr-auto font-semibold">Beauty Parlour</div>
+                            <input @click="handleCheck" type="checkbox" name="salontype" value="hairdresser"
+                                class="opacity-0 peer" />
+                            <img src="/assets/images/checkbox-empty.svg" role="presentation"
+                                class="peer-checked:hidden" />
+                            <img src="/assets/images/checkbox-filled.svg" role="presentation"
+                                class="hidden peer-checked:block" />
+                        </label>
+                    </div>
+
+
+                    <div class="focus-within:rounded-2xl focus-within:bg-mint">
+                        <label class="flex py-2 m-4 border-b-4 border-mint">
+                            <div class="mr-auto font-semibold">Pet Groomer</div>
+                            <input @click="handleCheck" type="checkbox" name="salontype" value="petgroomer"
+                                class="opacity-0 peer" />
+                            <img src="/assets/images/checkbox-empty.svg" role="presentation"
+                                class="peer-checked:hidden" />
+                            <img src="/assets/images/checkbox-filled.svg" role="presentation"
+                                class="hidden peer-checked:block" />
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
         <!-- lorem -->
 
-        <h1 class="text-3xl font-bold lg:text-5xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <h1 class="mt-12 text-3xl font-bold lg:text-5xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
             In,
@@ -77,6 +189,8 @@
             saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
             expedita!
         </p>
+
+
 
 
 
@@ -114,9 +228,11 @@
                     </div>
                 </div>
 
-                <div x-data="{ open : false }" class="flex flex-col order-2 gap-4 align-middle lg:grow">
+                <div x-data="{ open : false }" :aria-controls="$id('submenu')"
+                    class="flex flex-col order-2 gap-4 align-middle lg:grow">
                     <div class="footer-link-container">
-                        <button @click="open = !open" class="grow lg:grow-0">
+                        <button :disabled="width > breakpoint" @click="open = !open" type="button" :aria-expanded="open"
+                            class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>About</span>
                                 <img class="ml-auto lg:hidden" src="assets/images/chevron-down-white.svg"
@@ -124,7 +240,8 @@
                             </div>
                         </button>
                     </div>
-                    <div x-cloak x-show="open || width > breakpoint" class="flex flex-col gap-4 mb-4 lg:gap-1">
+                    <div :id="$id('submenu')" x-cloak x-show="open || width > breakpoint"
+                        class="flex flex-col gap-4 mb-4 lg:gap-1">
                         <div class="">
                             <a class="text-sm font-normal lg:text-base lg:font-semibold " href=" #">
                                 Our purpose
@@ -159,8 +276,9 @@
                 </div>
 
                 <div x-data="{ open : false }" class="flex flex-col order-3 gap-4 align-middle lg:grow">
-                    <div class="footer-link-container">
-                        <button @click="open = !open" class="grow lg:grow-0">
+                    <div class="footer-link-container" :disabled="width > breakpoint">
+                        <button type="button" @click="open = !open" :aria-expanded="open"
+                            :aria-controls="$id('submenu')" class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>For salons</span>
                                 <img class="ml-auto lg:hidden" src="assets/images/chevron-down-white.svg"
@@ -168,7 +286,8 @@
                             </div>
                         </button>
                     </div>
-                    <div x-cloak x-show="open || width > breakpoint" class="flex flex-col gap-4 mb-4 lg:gap-1">
+                    <div :id="$id('submenu')" x-cloak x-show="open || width > breakpoint"
+                        class="flex flex-col gap-4 mb-4 lg:gap-1">
                         <div class="">
                             <a class="text-sm font-normal lg:text-base lg:font-semibold" href="#">
                                 How it all works
