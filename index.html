@@ -62,9 +62,15 @@
                     if(! this.open) return
                     this.open = false
                     focusAfter && focusAfter.focus()
+
                 },
                 toggle() {
-                    this.open = !this.open
+                    if(this.open) {
+                        return this.close()
+                    }
+
+                    this.$refs.salonbutton.focus()
+                    this.open = true
                 },
                 labelText : 'Find salons',
                 handleCheck(e) {
@@ -100,10 +106,12 @@
                     this.labelText = labelText
 
                 }
-            }" class="relative">
+            }" x-on:keydown.escape.prevent.stop="close($refs.salonbutton)"
+                x-on:focusin.window="! $refs.salonpanel.contains($event.target) && close()" x-id="['selectbox']"
+                class="relative">
 
                 <!-- popover button -->
-                <button type="button" x-on:click="toggle()" :aria-expanded="open" :aria-haspopup="listbox"
+                <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
                     :aria-controls="$id('selectbox')"
                     class="flex items-center w-full mt-4 mb-4 font-semibold border-b-4 border-mint"><span
                         class="text-teal text-[28px]" x-text="labelText">Find salons</span><img class="ml-auto"
