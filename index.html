@@ -79,6 +79,26 @@
                         // if any other checkbox is selected, uncheck 'all'
                         document.querySelector('input[value=all]').checked = false
                     }
+
+                    // if none are selected, check 'all'
+                    if(document.querySelectorAll('input[name=salontype]:checked').length === 0) {
+                        document.querySelector('input[value=all]').checked = true
+                    }
+
+                    // format labelText
+                    let labelText = 'Find '
+                    let checked = document.querySelectorAll('input[name=salontype]:checked')
+                    labelText += checked[0].value === 'all' ? 'salons'
+                        : checked[0].value === 'hairdresser' ? 'hairdressers'
+                        : checked[0].value === 'barber' ? 'barbers'
+                        : checked[0].value === 'beautyparlour' ? 'beauty parlours'
+                        : 'pet groomers'
+                    // if more than one checkbox is selected, append ellipses
+                    if(checked.length > 1) {
+                        labelText += ' ...'
+                    }
+                    this.labelText = labelText
+
                 }
             }" class="relative">
 
@@ -86,9 +106,8 @@
                 <button type="button" x-on:click="toggle()" :aria-expanded="open" :aria-haspopup="listbox"
                     :aria-controls="$id('selectbox')"
                     class="flex items-center w-full mt-4 mb-4 font-semibold border-b-4 border-mint"><span
-                        class="text-teal text-[28px]">Find
-                        salons</span><img class="ml-auto" src="/assets/images/chevron-down-teal.svg"
-                        role="presentation" /></button>
+                        class="text-teal text-[28px]" x-text="labelText">Find salons</span><img class="ml-auto"
+                        src="/assets/images/chevron-down-teal.svg" role="presentation" /></button>
 
                 <!-- salon popover panel -->
                 <div :id="$id('selectbox')" x-cloak x-ref="salonpanel" x-show="open"
@@ -134,7 +153,7 @@
                     <div class="focus-within:rounded-2xl focus-within:bg-mint">
                         <label class="flex py-2 m-4 border-b-4 border-mint">
                             <div class="mr-auto font-semibold">Beauty Parlour</div>
-                            <input @click="handleCheck" type="checkbox" name="salontype" value="hairdresser"
+                            <input @click="handleCheck" type="checkbox" name="salontype" value="beautyparlour"
                                 class="opacity-0 peer" />
                             <img src="/assets/images/checkbox-empty.svg" role="presentation"
                                 class="peer-checked:hidden" />
