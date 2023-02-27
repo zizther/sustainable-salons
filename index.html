@@ -164,6 +164,11 @@
                 </button>
             </div>
 
+            <input id="ss_pac_input" class="p-3 w-full" type="text" placeholder="Suburb or postcode">
+
+            <input type="hidden" name="lat">
+            <input type="hidden" name="lng">
+
         </div>
 
 
@@ -400,7 +405,63 @@
         </div>
     </footer>
 
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrds5dIlEY-wupBGOfZvMNZSF5o1s97Q&libraries=places&callback=pacInit"></script>
     <script src="assets/js/main.js" defer></script>
+    <script>
+        function pacInit() {
+            const input = document.getElementById('ss_pac_input');
+            const options = {
+                fields: [
+                    'address_components',
+                    'formatted_address',
+                    'geometry.location',
+                    'name',
+                    'icon',
+                    'place_id'
+                ],
+                strictBounds: false,
+                types: ['geocode'],
+            };
+            const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+            // When typing a new query
+            input.addEventListener('change', function (e) {
+                e.preventDefault();
+
+                // Clear coordinates
+                document.getElementById('lat').value = '';
+                document.getElementById('lng').value = '';
+            });
+
+            autocomplete.addListener('place_changed', function () {
+                // Get newly selected place
+                let place = autocomplete.getPlace();
+
+                // If a valid geometry was found
+                if (place.geometry ?? false) {
+                    // Get new address info
+                    let coords = place.geometry.location;
+                    // Get coordinates
+                    let lat = parseFloat(coords.lat().toFixed(7)) || null;
+                    let lng = parseFloat(coords.lng().toFixed(7)) || null;
+                    // Set coordinates
+                    document.getElementById('lat').value = lat;
+                    document.getElementById('lng').value = lng;
+                } else {
+                    // Emit warning
+                    console.warn('Unable to get place geometry');
+                }
+            });
+
+            // Prevent address selection from attempting to submit the form
+            google.maps.event.addDomListener(input, 'keydown', (event) => {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                }
+            });
+        }
+        window.pacInit = pacInit;
+    </script>
 </body>
 
 </html>
