@@ -62,9 +62,15 @@
                     if(! this.open) return
                     this.open = false
                     focusAfter && focusAfter.focus()
+
                 },
                 toggle() {
-                    this.open = !this.open
+                    if(this.open) {
+                        return this.close()
+                    }
+
+                    this.$refs.salonbutton.focus()
+                    this.open = true
                 },
                 labelText : 'Find salons',
                 handleCheck(e) {
@@ -100,10 +106,12 @@
                     this.labelText = labelText
 
                 }
-            }" class="relative">
+            }" x-on:keydown.escape.prevent.stop="close($refs.salonbutton)"
+                x-on:focusin.window="! $refs.salonpanel.contains($event.target) && close()" x-id="['selectbox']"
+                class="relative">
 
                 <!-- popover button -->
-                <button type="button" x-on:click="toggle()" :aria-expanded="open" :aria-haspopup="listbox"
+                <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
                     :aria-controls="$id('selectbox')"
                     class="flex items-center w-full mt-4 mb-4 font-semibold border-b-4 border-mint"><span
                         class="text-teal text-[28px]" x-text="labelText">Find salons</span><img class="ml-auto"
@@ -112,7 +120,7 @@
                 <!-- salon popover panel -->
                 <div :id="$id('selectbox')" x-cloak x-ref="salonpanel" x-show="open"
                     x-on:click.outside="close($refs.button)" x-on:click.outside="close($refs.salonbutton)"
-                    class="absolute left-auto right-auto flex flex-col items-stretch p-2 border-4 w-80 border-teal-dark bg-cream rounded-3xl">
+                    class="absolute left-0 right-0 flex flex-col items-stretch max-w-sm p-2 mx-4 border-4 border-teal-dark bg-cream rounded-3xl">
 
                     <div class="focus-within:rounded-2xl focus-within:bg-mint">
                         <label class="flex py-2 m-4 border-b-4 border-mint">
