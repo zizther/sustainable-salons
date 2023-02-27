@@ -48,10 +48,11 @@
         </div>
     </header>
 
-    <main class="p-8 mb-24 grow max-w-prose">
+    <main class="py-8 mb-24 grow max-w-prose">
 
         <!-- Search component -->
-        <div class="p-6 border-4 border-solid rounded-3xl border-teal-dark bg-cream">
+        <div
+            class="p-6 bg-center bg-cover border-4 border-solid rounded-3xl border-teal-dark bg-cream lg:bg-locationSearchSquiggle">
             <form action="/search" x-ref="salonsearch" method="get" x-data="
             {
                 isValid: false,

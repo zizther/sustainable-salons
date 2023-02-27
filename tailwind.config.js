@@ -29,6 +29,8 @@ module.exports = {
             },
             backgroundImage: {
                 squiggle: "url('/assets/images/squiggle.svg')",
+                locationSearchSquiggle:
+                    "url('/assets/images/location-search-squiggle.svg')",
             },
             screens: {
                 "2xl": "1440px",
