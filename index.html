@@ -186,7 +186,10 @@
                 </div>
             </div>
 
-            <input id="ss_pac_input" type="text">
+            <input id="ss_pac_input" type="text" placeholder="Suburb or postcode">
+
+            <input type="hidden" name="lat">
+            <input type="hidden" name="lng">
 
         </div>
 
@@ -435,6 +438,13 @@
                 types: ["(region)"],
             };
             const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+            autocomplete.addEventListener('place_changed', function () {
+                let place = autocomplete.getPlace();
+
+                document.getElementById('lat').value = place.geometry['location'].lat();
+                document.getElementById('lng').value= place.geometry['location'].lng();
+            });
         }
     </script>
 </body>
