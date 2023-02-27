@@ -156,7 +156,7 @@
             </div>
             <!-- location search -->
             <div class="w-full h-[50px] md:h-[67px]  mt-7 relative">
-                <input type="text" required name="location" placeholder="Suburb or postcode"
+                <input id="ss_pac_input" type="text" required name="location" placeholder="Suburb or postcode"
                     class="absolute inset-0 py-4 pl-4 bg-ivory pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
                 <button type="submit" :disabled="!isValid"
                     class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
@@ -164,7 +164,7 @@
                 </button>
             </div>
 
-            <input id="ss_pac_input" class="p-3 w-full" type="text" placeholder="Suburb or postcode">
+            <!-- <input class="w-full p-3" type="text" placeholder="Suburb or postcode"> -->
 
             <input type="hidden" name="lat">
             <input type="hidden" name="lng">
@@ -405,7 +405,8 @@
         </div>
     </footer>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrds5dIlEY-wupBGOfZvMNZSF5o1s97Q&libraries=places&callback=pacInit"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrds5dIlEY-wupBGOfZvMNZSF5o1s97Q&libraries=places&callback=pacInit"></script>
     <script src="assets/js/main.js" defer></script>
     <script>
         function pacInit() {
