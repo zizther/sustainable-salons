@@ -72,7 +72,7 @@
                     this.$refs.salonbutton.focus()
                     this.open = true
                 },
-                labelText : 'Find salons',
+                labelText : 'salons',
                 handleCheck(e) {
                     // if 'all' is selected, unchecked all other checkboxes
                     if(e.target.value === 'all') {
@@ -92,9 +92,8 @@
                     }
 
                     // format labelText
-                    let labelText = 'Find '
                     let checked = document.querySelectorAll('input[name=salontype]:checked')
-                    labelText += checked[0].value === 'all' ? 'salons'
+                    let labelText = checked[0].value === 'all' ? 'salons'
                         : checked[0].value === 'hairdresser' ? 'hairdressers'
                         : checked[0].value === 'barber' ? 'barbers'
                         : checked[0].value === 'beautyparlour' ? 'beauty parlours'
@@ -110,17 +109,23 @@
                 x-on:focusin.window="! $refs.salonpanel.contains($event.target) && close()" x-id="['selectbox']"
                 class="relative">
 
-                <!-- popover button -->
-                <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
-                    :aria-controls="$id('selectbox')"
-                    class="flex items-center w-full mt-4 mb-4 font-semibold border-b-4 border-mint"><span
-                        class="text-teal text-[28px]" x-text="labelText">Find salons</span><img class="ml-auto"
-                        src="/assets/images/chevron-down-teal.svg" role="presentation" /></button>
+                <div class="flex items-baseline w-full mt-3 mb-3 font-semibold  text-teal-dark text-[28px]">
+                    <span class="hidden md:inline ">Find sustainable&nbsp;</span>
+                    <!-- popover button -->
+                    <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
+                        :aria-controls="$id('selectbox')"
+                        class="flex items-center w-full gap-1.5 text-teal border-b-4 md:w-fit border-mint">
+                        <span class="md:hidden">Find</span><span class="" x-text="labelText">salons</span>
+                        <img class="ml-auto"
+                            :src="open ? '/assets/images/chevron-up-teal.svg' : '/assets/images/chevron-down-teal.svg'"
+                            role="presentation" /></button>
+                    <span class="hidden md:inline ">&nbsp;in</span>
+                </div>
 
                 <!-- salon popover panel -->
                 <div :id="$id('selectbox')" x-cloak x-ref="salonpanel" x-show="open"
                     x-on:click.outside="close($refs.button)" x-on:click.outside="close($refs.salonbutton)"
-                    class="absolute left-0 right-0 flex flex-col items-stretch max-w-sm p-2 mx-4 border-4 border-teal-dark bg-cream rounded-3xl">
+                    class="absolute left-0 right-0 flex flex-col items-stretch max-w-sm p-2 mx-4 border-4 z-100 border-teal-dark bg-cream rounded-3xl">
 
                     <div class="focus-within:rounded-2xl focus-within:bg-mint">
                         <label class="flex py-2 m-4 border-b-4 border-mint">
@@ -184,6 +189,16 @@
                     </div>
 
                 </div>
+
+            </div>
+            <!-- location search -->
+            <div class="w-full h-[50px] md:h-[67px]  mt-7 relative">
+                <input type="text" required name="location" placeholder="Suburb or postcode"
+                    class="absolute inset-0 py-4 pl-4 bg-ivory pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
+                <button type="submit" :disabled="!isValid"
+                    class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
+                    Find
+                </button>
             </div>
 
         </div>
@@ -397,11 +412,11 @@
                             <form x-ref="subscribeForm" class="w-full mt-2" x-data="{isValid : false}">
                                 <input type="text" name="name" placeholder="Name" required
                                     @input="isValid = $refs.subscribeForm.checkValidity()"
-                                    class="w-full h-[50px] md:h-[67px] mt-4 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl  placeholder:text-ui-disabled">
+                                    class="w-full bg-ivory h-[50px] md:h-[67px] mt-4 p-4 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl  placeholder:text-ui-disabled">
                                 <div class="w-full h-[50px] md:h-[67px]  mt-4 relative">
                                     <input type="email" required name="email" placeholder="Email"
                                         @input="isValid = $refs.subscribeForm.checkValidity()"
-                                        class="absolute inset-0 py-4 pl-4 pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
+                                        class="absolute inset-0 py-4 pl-4 bg-ivory pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
                                     <button type="submit" :disabled="!isValid"
                                         class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
                                         Subscribe
