@@ -157,14 +157,12 @@
             <!-- location search -->
             <div class="w-full h-[50px] md:h-[67px]  mt-7 relative">
                 <input id="ss_pac_input" type="text" required name="location" placeholder="Suburb or postcode"
-                    class="absolute inset-0 py-4 pl-4 bg-ivory pr-36 rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
+                    class="absolute inset-0 py-4 pl-4 pr-20 bg-ivory rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
                 <button type="submit" :disabled="!isValid"
                     class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
                     Find
                 </button>
             </div>
-
-            <!-- <input class="w-full p-3" type="text" placeholder="Suburb or postcode"> -->
 
             <input type="hidden" name="lat">
             <input type="hidden" name="lng">
