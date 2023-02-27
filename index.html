@@ -48,11 +48,11 @@
         </div>
     </header>
 
-    <main class="py-8 mb-24 grow max-w-prose">
+    <main class="py-8 mb-24 grow ">
 
         <!-- Search component -->
         <div
-            class="p-6 bg-center bg-cover border-4 border-solid rounded-3xl border-teal-dark bg-cream lg:bg-locationSearchSquiggle">
+            class="p-6 bg-center bg-cover border-4 border-solid q-full rounded-3xl border-teal-dark bg-cream lg:bg-locationSearchSquiggle">
             <form action="/search" x-ref="salonsearch" method="get" x-data="
             {
                 isValid: false,
@@ -61,7 +61,10 @@
                 },
                 }">
 
-                <div class="w-full text-lg font-semibold text-center text-teal-dark">#1 Directory Platform in the
+                <div
+                    class="w-full text-base font-semibold text-center sm:text-lg lg:text-2xl md:text-xl text-teal-dark">
+                    #1 Directory Platform
+                    in the
                     Industry
                     &ndash; not
                     bragging.</div>
@@ -119,7 +122,8 @@
                 }" x-on:keydown.escape.prevent.stop="close($refs.salonbutton)"
                     x-on:focusin.window="! $refs.salonpanel.contains($event.target) && close()" x-id="['selectbox']"
                     class="relative">
-                    <div class="flex items-baseline w-full mt-3 mb-3 font-semibold  text-teal-dark text-[28px]">
+                    <div
+                        class="flex items-baseline w-full mt-3 mb-3 font-semibold  text-teal-dark text-[18px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
                         <span class="hidden md:inline ">Find sustainable&nbsp;</span>
                         <!-- popover button -->
                         <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
@@ -169,31 +173,38 @@
 
         <!-- lorem -->
 
-        <h1 class="mt-12 text-3xl font-bold lg:text-5xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
-            In,
-            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
-            expedita!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
-            In,
-            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
-            expedita!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
-            In,
-            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
-            expedita!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident quas!
-            In,
-            saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
-            expedita!
-        </p>
+        <div class="max-w-prose">
+            <h1 class="mt-12 text-3xl font-bold lg:text-5xl">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident
+                quas!
+                In,
+                saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+                expedita!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident
+                quas!
+                In,
+                saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+                expedita!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident
+                quas!
+                In,
+                saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+                expedita!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi perferendis error porro animi provident
+                quas!
+                In,
+                saepe. Provident beatae aspernatur itaque quo unde recusandae perferendis vel officiis, quam placeat
+                expedita!
+            </p>
+        </div>
 
 
 
