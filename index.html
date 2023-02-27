@@ -427,10 +427,10 @@
         </div>
     </footer>
 
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrds5dIlEY-wupBGOfZvMNZSF5o1s97Q&libraries=places&callback=initPac"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrds5dIlEY-wupBGOfZvMNZSF5o1s97Q&libraries=places"></script>
     <script src="assets/js/main.js" defer></script>
     <script>
-        function initPac() {
+        window.onload = (event) => {
             const input = document.getElementById("ss_pac_input");
             const options = {
                 fields: ["address_components", "geometry", "icon", "name"],
@@ -445,7 +445,7 @@
                 document.getElementById('lat').value = place.geometry['location'].lat();
                 document.getElementById('lng').value= place.geometry['location'].lng();
             });
-        }
+        };
     </script>
 </body>
 
