@@ -247,8 +247,8 @@
                             class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>About</span>
-                                <img class="ml-auto lg:hidden" src="assets/images/chevron-down-white.svg"
-                                    role="presentation" />
+                                <img :class="`ml-auto lg:hidden ${open && 'rotate-180'}`"
+                                    src="assets/images/chevron-down-white.svg" role="presentation" />
                             </div>
                         </button>
                     </div>
@@ -293,8 +293,8 @@
                             :aria-controls="$id('submenu')" class="grow lg:grow-0">
                             <div class="flex align-middle border-b-2 pb-0.5 border-b-mint md:border-b-4">
                                 <span>For salons</span>
-                                <img class="ml-auto lg:hidden" src="assets/images/chevron-down-white.svg"
-                                    role="presentation" />
+                                <img :class="`ml-auto lg:hidden ${open && 'rotate-180'}`"
+                                    src="assets/images/chevron-down-white.svg" role="presentation" />
                             </div>
                         </button>
                     </div>
