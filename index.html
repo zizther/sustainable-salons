@@ -103,21 +103,26 @@
                     },
                     labelText : 'salons',
                     handleCheck(e) {
-                        //console.log('handleCheck', {value: e.target.value, checked: e.target.checked})
                         // if 'all' is checked, uncheck all other options
                         if(e.target.value === '0') {
                             e.target.checked = true
                             this.options[0].selected = true
                             this.options.filter(x => x.value != 0).forEach(option => {
-                                console.log('unchecking', option)
                                 option.selected = false
-                                //console.log(option)
                             })
                         } else {
-                            // uncheck the 'all' option
-                            this.options[0].selected = false
+                            // if this.target is unchecked and no other options are checked, check the first option
+                            if(! e.target.checked && this.options.filter(x => x.value != e.target.value && x.selected).length === 0) {
+                                this.options[0].selected = true
+                            } else if(e.target.checked && this.options.filter(x => x.value != e.target.value && x.value !== '0' && ! x.selected).length === 0) {
+                                console.log('all options checked')
+                                this.options[0].selected = true
+                            } else {
+                                // uncheck the 'all' option
+                                this.options[0].selected = false
+                            }
                         }
-                        //console.log(this.options)
+
                     }
                 }" x-on:keydown.escape.prevent.stop="close($refs.salonbutton)"
                     x-on:focusin.window="! $refs.salonpanel.contains($event.target) && $event.target != $refs.salonbutton && close()"
