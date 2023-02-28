@@ -136,7 +136,7 @@
                             class="flex items-center w-full gap-1.5 text-teal border-b-4 md:w-fit border-mint">
                             <span class="md:hidden">Find</span><span class=""
                                 x-text="options.filter(x => x.selected)[0]?.topLabel">salons</span> <span
-                                x-show="options.filter(x => x.selected).length > 1">&hellip;</span>
+                                x-show="options.filter(x => x.selected).length > 1 && ! options[0].selected">&hellip;</span>
                             <img class="ml-auto"
                                 :src="open ? '/assets/images/chevron-up-teal.svg' : '/assets/images/chevron-down-teal.svg'"
                                 role="presentation" /></button>
