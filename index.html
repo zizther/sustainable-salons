@@ -59,6 +59,13 @@
                 latAndLongFieldsPopulated: () => {
                     return $refs.lat.value && $refs.long.value
                 },
+                options: [
+                    { value: '0', label: 'All salons', topLabel: 'salons', selected: true },
+                    { value: '2', label: 'Hairdressers', topLabel: 'hairdressers', selected: false },
+                    { value: '3', label: 'Barbers', topLabel: 'barbers', selected: false },
+                    { value: '4', label: 'Beauty Parlours', topLabel: 'beauty parlours', selected: false },
+                    { value: '5', label: 'Pet Groomers', topLabel: 'pet groomers', selected: false }
+                ],
                 }">
 
                 <div
@@ -82,42 +89,23 @@
                         this.$refs.salonbutton.focus()
                         this.open = true
                     },
-                    options: [
-                        { value: 'all', label: 'All salons', topLabel: 'salons' },
-                        { value: 'hairdresser', label: 'Hairdressers', topLabel: 'hairdressers' },
-                        { value: 'barber', label: 'Barbers', topLabel: 'barbers' },
-                        { value: 'beautyparlour', label: 'Beauty Parlours', topLabel: 'beauty parlours' },
-                        { value: 'petgroomer', label: 'Pet Groomers', topLabel: 'pet groomers'}
-                    ],
                     labelText : 'salons',
                     handleCheck(e) {
-                        // if 'all' is selected, unchecked all other checkboxes
-                        if(e.target.value === 'all') {
-                            if(e.target.checked) {
-                                document.querySelectorAll('input[name=salontype]').forEach(el => {
-                                    el.checked = el.value === 'all'
-                                })
-                            }
+                        //console.log('handleCheck', {value: e.target.value, checked: e.target.checked})
+                        // if 'all' is checked, uncheck all other options
+                        if(e.target.value === '0') {
+                            e.target.checked = true
+                            this.options[0].selected = true
+                            this.options.filter(x => x.value != 0).forEach(option => {
+                                console.log('unchecking', option)
+                                option.selected = false
+                                //console.log(option)
+                            })
                         } else {
-                            // if any other checkbox is selected, uncheck 'all'
-                            document.querySelector('input[value=all]').checked = false
+                            // uncheck the 'all' option
+                            this.options[0].selected = false
                         }
-                        // if none are selected, check 'all'
-                        if(document.querySelectorAll('input[name=salontype]:checked').length === 0) {
-                            document.querySelector('input[value=all]').checked = true
-                        }
-                        // format labelText
-                        let checked = document.querySelectorAll('input[name=salontype]:checked')
-                        let labelText = checked[0].value === 'all' ? 'salons'
-                            : checked[0].value === 'hairdresser' ? 'hairdressers'
-                            : checked[0].value === 'barber' ? 'barbers'
-                            : checked[0].value === 'beautyparlour' ? 'beauty parlours'
-                            : 'pet groomers'
-                        // if more than one checkbox is selected, append ellipses
-                        if(checked.length > 1) {
-                            labelText += ' ...'
-                        }
-                        this.labelText = labelText
+                        //console.log(this.options)
                     }
                 }" x-on:keydown.escape.prevent.stop="close($refs.salonbutton)"
                     x-on:focusin.window="! $refs.salonpanel.contains($event.target) && $event.target != $refs.salonbutton && close()"
@@ -129,7 +117,9 @@
                         <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
                             :aria-controls="$id('selectbox')" type="button"
                             class="flex items-center w-full gap-1.5 text-teal border-b-4 md:w-fit border-mint">
-                            <span class="md:hidden">Find</span><span class="" x-text="labelText">salons</span>
+                            <span class="md:hidden">Find</span><span class=""
+                                x-text="options.filter(x => x.selected)[0]?.topLabel">salons</span> <span
+                                x-show="options.filter(x => x.selected).length > 1">&hellip;</span>
                             <img class="ml-auto"
                                 :src="open ? '/assets/images/chevron-up-teal.svg' : '/assets/images/chevron-down-teal.svg'"
                                 role="presentation" /></button>
@@ -140,12 +130,14 @@
                         x-on:click.outside="close($refs.salonbutton)"
                         class="absolute left-0 right-0 flex flex-col items-stretch max-w-sm p-2 mx-4 border-4 z-100 border-teal-dark bg-cream rounded-3xl">
                         <template x-for="option in options">
-                            <!-- 'all' is checked by default -->
+
                             <div class="focus-within:rounded-2xl focus-within:bg-mint" :key="option.value">
                                 <label class="flex py-2 m-4 border-b-4 border-mint">
                                     <div class="mr-auto font-semibold" x-text="option.label">options</div>
-                                    <input @click="handleCheck" type="checkbox" :checked="option.value === 'all'"
-                                        name="salontype" :value="option.value" class="opacity-0 peer" />
+                                    <!-- input has no "name" attr so it won't be included in the form submission -->
+                                    <input @click="handleCheck" x-model:checked="option.selected" :value="option.value"
+                                        @pageshow.window="option.selected = $el.checked" type="checkbox"
+                                        class="opacity-0 peer salontypecheckbox" />
                                     <img src="/assets/images/checkbox-empty.svg" role="presentation"
                                         class="peer-checked:hidden" />
                                     <img src="/assets/images/checkbox-filled.svg" role="presentation"
@@ -157,7 +149,7 @@
                 </div>
                 <!-- location search -->
                 <div class="w-full h-[50px] md:h-[67px] mt-7 relative">
-                    <input id="ss_pac_input" type="text" required name="location" placeholder="Suburb or postcode"
+                    <input id="ss_pac_input" type="text" required name="q" placeholder="Suburb or postcode"
                         class="absolute inset-0 py-4 pl-4 pr-20 bg-ivory rounded-2xl focus:rounded-2xl md:rounded-3xl md:focus:rounded-3xl placeholder:text-ui-disabled">
                     <button type="submit" id="locationsubmit" disabled="true"
                         class="absolute bottom-2 top-1 right-1 md:bottom-3 md:top-2 md:right-2 button-primary rounded-xl! ">
@@ -166,6 +158,10 @@
                 </div>
                 <input x-ref="lat" type="hidden" name="lat" id="lat">
                 <input x-ref="lng" type="hidden" name="lng" id="lng">
+                <template x-if="options[0].selected === false">
+                    <input type="text" hidden name="type"
+                        :value="options.filter(x => x.selected && x.value !== '0').map(x => x.value).join('|')" />
+                </template>
             </form>
 
         </div>

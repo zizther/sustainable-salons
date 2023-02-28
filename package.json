@@ -13,7 +13,7 @@
         "deploy": "npm run build-css && npm run build-js && npm run copy"
     },
     "dependencies": {
-        "alpinejs": "^2.8",
+        "alpinejs": "^3.11.1",
         "gsap": "^3.11"
     },
     "devDependencies": {
