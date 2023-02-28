@@ -11,15 +11,23 @@
 
 <body class="h-full p-4 overflow-x-hidden font-sans text-base antialiased lg:p-7 bg-off-white text-teal-dark">
 
-    <header>
+    <header x-data="{
+        navOpen: false,
+        toggleNavOpen() {
+            this.navOpen = !this.navOpen
+        }
+    }">
 
         <!-- < lg -->
         <div class="flex flex-col gap-y-1 lg:hidden">
             <div class="flex items-center p-4 rounded-t-2xl bg-cream">
                 <img alt="Sustainable Salons logo" class="mr-auto" src="assets/images/logo.svg">
-                <button>
-                    <img class="h-[54px] mt-1 drop-shadow-[0_6px_0_teal] active:drop-shadow-[0_0_0_teal] transition
-                        duration-75" src="assets/images/menu-open.svg" role="button" alt="Open navigation menu">
+                <button @click="toggleNavOpen">
+
+                    <img class="h-[54px] mt-1 drop-shadow-[0_6px_0_teal] active:drop-shadow-[0_0_0_teal] transition duration-75"
+                        :src="navOpen ? 'assets/images/menu-close.svg' : 'assets/images/menu-open.svg'"
+                        alt="Open navigation menu">
+
                 </button>
             </div>
             <div class="flex gap-2 p-4 bg-cream rounded-b-2xl">
@@ -41,11 +49,15 @@
             <button class="button-secondary h-[51px]">
                 For Salons
             </button>
-            <button>
-                <img class="h-[54px] mt-1 drop-shadow-[0_6px_0_teal] active:drop-shadow-[0_0_0_teal] transition
-                    duration-75" src="assets/images/menu-open.svg" role="button" alt="Open navigation menu">
+            <button @click="toggleNavOpen">
+                <img class="h-[54px] mt-1 drop-shadow-[0_6px_0_teal] active:drop-shadow-[0_0_0_teal] transition duration-75"
+                    :src="navOpen ? 'assets/images/menu-close.svg' : 'assets/images/menu-open.svg'"
+                    alt="Open navigation menu">
             </button>
         </div>
+
+        <div x-show="navOpen" x-cloak x-transition class="p-4 mt-1 h-80 lg:p-8 bg-cream rounded-2xl">
+            Dummy nav panel</div>
     </header>
 
     <main class="py-8 mb-24 grow ">
