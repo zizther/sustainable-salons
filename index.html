@@ -120,14 +120,14 @@
                         this.labelText = labelText
                     }
                 }" x-on:keydown.escape.prevent.stop="close($refs.salonbutton)"
-                    x-on:focusin.window="! $refs.salonpanel.contains($event.target) && close()" x-id="['selectbox']"
-                    class="relative">
+                    x-on:focusin.window="! $refs.salonpanel.contains($event.target) && $event.target != $refs.salonbutton && close()"
+                    x-id="['selectbox']" class="relative">
                     <div
                         class="flex items-baseline w-full mt-3 mb-3 font-semibold  text-teal-dark text-[18px] sm:text-[28px] md:text-[34px] lg:text-[40px]">
                         <span class="hidden md:inline ">Find sustainable&nbsp;</span>
                         <!-- popover button -->
                         <button type="button" x-on:click="toggle()" :aria-expanded="open" x-ref="salonbutton"
-                            :aria-controls="$id('selectbox')"
+                            :aria-controls="$id('selectbox')" type="button"
                             class="flex items-center w-full gap-1.5 text-teal border-b-4 md:w-fit border-mint">
                             <span class="md:hidden">Find</span><span class="" x-text="labelText">salons</span>
                             <img class="ml-auto"
@@ -137,7 +137,7 @@
                     </div>
                     <!-- salon popover panel -->
                     <div :id="$id('selectbox')" x-cloak x-ref="salonpanel" x-show="open"
-                        x-on:click.outside="close($refs.button)" x-on:click.outside="close($refs.salonbutton)"
+                        x-on:click.outside="close($refs.salonbutton)"
                         class="absolute left-0 right-0 flex flex-col items-stretch max-w-sm p-2 mx-4 border-4 z-100 border-teal-dark bg-cream rounded-3xl">
                         <template x-for="option in options">
                             <!-- 'all' is checked by default -->
