@@ -66,20 +66,27 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
     <main class="py-8 mb-24 space-y-12 grow">
 
         <!-- Carousel component -->
-        <section class="h-[734px] relative splide w-fill bg-rose-300 rounded-[48px]" aria-label="Find out more">
+        <section class="h-[675px] sm:h-[734px] relative splide w-fill bg-rose-300 rounded-[48px]"
+            aria-label="Find out more">
 
 
             <div class="absolute inset-0 w-full h-full rounded-[48px] overflow-hidden splide__track">
                 <ul class="splide__list">
-                    <li class="w-full h-full bg-red-400 splide__slide">Slide 01</li>
-                    <li class="w-full h-full bg-blue-400 splide__slide">Slide 02</li>
-                    <li class="w-full h-full splide__slide bg-rose-400">Slide 03</li>
-                    <li class="w-full h-full bg-green-400 splide__slide">Slide 04</li>
-                    <li class="w-full h-full bg-purple-400 splide__slide">Slide 05</li>
+                    <li class="w-full h-full bg-[#fdf2f7] splide__slide">
+                        <div class="flex flex-col justify-center gap-12 align-middle text-teal">
+                            <div class="text-3xl font-semibold text-center">Together we have&hellip;</div>
+                            <div class="text-6xl font-semibold leading-[44px] text-center">Collected and donated <span
+                                    class="text-ponytails">187,000+</span> ponytails</span></div>
+                        </div>
+                    </li>
+                    <li class="w-full h-full bg-[#e6f8ed] splide__slide">Slide 02</li>
+                    <li class="w-full h-full splide__slide bg-[#e0d7cd]">Slide 03</li>
+                    <li class="w-full h-full bg-[#f0eafb] splide__slide">Slide 04</li>
+                    <li class="w-full h-full bg-[#e6f8ed] splide__slide">Slide 05</li>
                 </ul>
             </div>
 
-            <div class="absolute inset-0 flex flex-col items-center justify-end">
+            <div class="absolute inset-0 flex flex-col items-center justify-end pb-12 sm:pb-20">
 
                 <div class="relative w-full splide__arrows">
                     <div class="flex items-center justify-center w-full gap-12">
@@ -88,14 +95,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
                             <img src="/assets/images/carousel-next-arrow.svg" role="presentation" />
                         </button>
 
-                        <ul class="hidden gap-12 sm:flex splide__pagination "></ul>
+                        <ul class="hidden gap-12 sm:gap-12 sm:flex splide__pagination "></ul>
 
                         <button class=" splide__arrow splide__arrow--next" title="Previous">
                             <img src="/assets/images/carousel-next-arrow.svg" role="presentation" />
                         </button>
                     </div>
                 </div>
-                <a href="#" role="button" class="relative mt-12 button-secondary">Find out more</a>
+                <a href="#" role="button" class="relative mt-6 sm:mt-12 button-secondary">Find out more</a>
 
 
             </div>
@@ -478,7 +485,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
                 type: 'fade',
                 perMove: 1,
                 pagination: true,
-                autoplay: true,
+                // autoplay: true,
+                autoplay: false, // turn off autoplay for now
                 interval: 8000,
                 speed: 2000,
                 rewind: true,
