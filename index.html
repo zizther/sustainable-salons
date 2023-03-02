@@ -5,8 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=5">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
+" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body class="h-full p-4 overflow-x-hidden font-sans text-base antialiased lg:p-7 bg-off-white text-teal-dark">
@@ -60,7 +63,43 @@
             Dummy nav panel</div>
     </header>
 
-    <main class="py-8 mb-24 grow ">
+    <main class="py-8 mb-24 space-y-12 grow">
+
+        <!-- Carousel component -->
+        <section class="h-[734px] relative splide w-fill bg-rose-300 rounded-[48px]" aria-label="Find out more">
+
+
+            <div class="absolute inset-0 w-full h-full rounded-[48px] overflow-hidden splide__track">
+                <ul class="splide__list">
+                    <li class="w-full h-full bg-red-400 splide__slide">Slide 01</li>
+                    <li class="w-full h-full bg-blue-400 splide__slide">Slide 02</li>
+                    <li class="w-full h-full splide__slide bg-rose-400">Slide 03</li>
+                    <li class="w-full h-full bg-green-400 splide__slide">Slide 04</li>
+                    <li class="w-full h-full bg-purple-400 splide__slide">Slide 05</li>
+                </ul>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-end">
+
+                <div class="relative w-full splide__arrows">
+                    <div class="flex items-center justify-center w-full gap-12">
+
+                        <button class=" splide__arrow splide__arrow--prev" title="Next">
+                            <img src="/assets/images/carousel-next-arrow.svg" role="presentation" />
+                        </button>
+
+                        <ul class="hidden gap-12 sm:flex splide__pagination "></ul>
+
+                        <button class=" splide__arrow splide__arrow--next" title="Previous">
+                            <img src="/assets/images/carousel-next-arrow.svg" role="presentation" />
+                        </button>
+                    </div>
+                </div>
+                <a href="#" role="button" class="relative mt-12 button-secondary">Find out more</a>
+
+
+            </div>
+        </section>
 
         <!-- Search component -->
         <div
@@ -428,6 +467,32 @@
             <a href="#" class="2xl:ml-auto">Proudly made by TMRRW™️ Studio</a>
         </div>
     </footer>
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var splide = new Splide('.splide', {
+                type: 'fade',
+                perMove: 1,
+                pagination: true,
+                autoplay: true,
+                interval: 8000,
+                speed: 2000,
+                rewind: true,
+                pauseOnHover: true,
+                classes: {
+                    pagination: 'splide__pagination custom-pagination',
+                    page: 'splide__pagination__page custom-page',
+                },
+            });
+
+            splide.mount();
+        });
+    </script>
+
 
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcrds5dIlEY-wupBGOfZvMNZSF5o1s97Q&libraries=places&callback=pacInit"></script>

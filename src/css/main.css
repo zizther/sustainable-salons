@@ -125,4 +125,23 @@ transition duration-75
 }
 
 
+.custom-page {
+    @apply
+    w-4 h-4
+    bg-teal
+    rounded
+    transition duration-75
+    opacity-100
+
+    ;
+}
+
+.custom-page.is-active {
+    @apply scale-100 opacity-100 bg-mint
+    ;
+}
+
+.splide__arrow--next,.splide__arrow--prev {
+    @apply  opacity-100;
+}
 
