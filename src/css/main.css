@@ -150,10 +150,10 @@ transition duration-75
 }
 
 .carousel-subheading {
-    @apply text-3xl font-semibold text-center;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-center;
 }
 
 .carousel-heading {
-    @apply text-6xl font-semibold leading-[44px] text-center;
+    @apply text-3xl sm:text-6xl md:text-7xl lg:text-9xl font-semibold leading-[28px] sm:leading-[44px] md:leading-[50px] lg:leading-[100px] text-center;
 }
 
