@@ -82,14 +82,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
                             <div class="carousel-heading">Collected and donated <span
                                     class="text-ponytails">187,000+</span> ponytails</span></div>
                             <img src="/assets/images/carousel/ponytail.png"
-                                class="object-contain shrink-in block md:hidden h-[151px] w-full object-center -rotate-[30deg]"
+                                class="object-contain shrink-in--30 block md:hidden h-[151px] w-full object-center -rotate-[30deg]"
                                 role="presentation" />
 
                             <img src="/assets/images/carousel/ponytail.png"
-                                class="absolute shrink-in left-0 bottom-0 -z-10 object-contain md:block hidden h-[315px] -rotate-[30deg] mb-12 ml-16 lg:ml-24 xl:ml-36 xl:mb-18 2xl:mb-24 2xl:ml-44 object-center"
+                                class="absolute shrink-in--30 left-0 bottom-0 -z-10 object-contain md:block hidden h-[315px] -rotate-[30deg] mb-12 ml-16 lg:ml-24 xl:ml-36 xl:mb-18 2xl:mb-24 2xl:ml-44 object-center"
                                 role="presentation" />
                             <img src="/assets/images/carousel/ponytail.png"
-                                class="absolute shrink-in top-0 right-0 -z-10 object-contain md:block hidden h-[315px]  rotate-[30deg] -mt-28 mr-16 lg:mr-24 xl:mr-36 2xl:mr-44 object-center"
+                                class="absolute shrink-in-30 top-0 right-0 -z-10 object-contain md:block hidden h-[315px]  rotate-[30deg] -mt-28 mr-16 lg:mr-24 xl:mr-36 2xl:mr-44 object-center"
                                 role="presentation" />
                         </div>
                     </li>
@@ -121,14 +121,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
                                 appointments via our Salon Locator
                             </div>
                             <img src="/assets/images/carousel/hair.png"
-                                class="-mt-4 object-contain shrink-in block md:hidden h-[151px] w-full object-center -rotate-[30deg]"
+                                class="-mt-4 object-contain shrink-in--30 block md:hidden h-[151px] w-full object-center -rotate-[30deg]"
                                 role="presentation" />
 
                             <img src="/assets/images/carousel/hair.png"
-                                class="absolute shrink-in left-0 bottom-0 -z-10 object-contain md:block hidden h-[280px] -rotate-[30deg] mb-12 ml-0 md:ml-0 lg:ml-0 lg:mb-0 xl:ml-12 xl:mb-8 2xl:mb-18 2xl:ml-12 object-center"
+                                class="absolute shrink-in--30 left-0 bottom-0 -z-10 object-contain md:block hidden h-[280px] -rotate-[30deg] mb-12 ml-0 md:ml-0 lg:ml-0 lg:mb-0 xl:ml-12 xl:mb-8 2xl:mb-18 2xl:ml-12 object-center"
                                 role="presentation" />
                             <img src="/assets/images/carousel/hair.png"
-                                class="absolute shrink-in top-0 right-0 -z-10 object-contain md:block hidden h-[206px]  rotate-[30deg]  mr-16 lg:mr-0 xl:mr-36 2xl:mr-44 object-center"
+                                class="absolute shrink-in-30 top-0 right-0 -z-10 object-contain md:block hidden h-[206px]  rotate-[30deg]  mr-16 lg:mr-0 xl:mr-36 2xl:mr-44 object-center"
                                 role="presentation" />
                         </div>
                     </li>
@@ -146,10 +146,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
                                 alt="More" role="presentation" />
 
                             <img src="/assets/images/carousel/more.png"
-                                class="absolute shrink-in left-0 bottom-0 -z-10 object-contain md:block hidden h-[218px] -rotate-[30deg] mb-12 ml-4 md:ml-12 lg:ml-18 lg:mb-18 xl:ml-20 xl:mb-8 2xl:mb-24 2xl:ml-24 object-center"
+                                class="absolute shrink-in--30 left-0 bottom-0 -z-10 object-contain md:block hidden h-[218px] -rotate-[30deg] mb-12 ml-4 md:ml-12 lg:ml-18 lg:mb-18 xl:ml-20 xl:mb-8 2xl:mb-24 2xl:ml-24 object-center"
                                 role="presentation" />
                             <img src="/assets/images/carousel/more.png"
-                                class="absolute shrink-in top-0 right-0 -z-10 object-contain md:block hidden h-[114px]  rotate-[30deg] mt-12 mr-16 lg:mr-0 xl:mr-36 2xl:mr-44 object-center"
+                                class="absolute shrink-in-30 top-0 right-0 -z-10 object-contain md:block hidden h-[114px]  rotate-[30deg] mt-12 mr-16 lg:mr-24 xl:mr-36 2xl:mr-44 object-center"
                                 role="presentation" />
                         </div>
                     </li>
@@ -574,10 +574,10 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css
                 perMove: 1,
                 pagination: true,
                 autoplay: true,
-                interval: 5000,
+                interval: 5000, // must match the transition duration in the CSS
                 speed: 2000,
                 rewind: true,
-                pauseOnHover: true,
+                pauseOnHover: false, // because of the css transition
                 classes: {
                     pagination: 'splide__pagination custom-pagination',
                     page: 'splide__pagination__page custom-page',
